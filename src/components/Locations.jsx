@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 
-const Locations = () => {
+const Locations = (props) => {
 
   const [location, setlocations] = useState();
-  const [battlelocation, setBattleLocation] = useState();
-
   useEffect(()=>{
     const fetcData = async () => {
       try {
@@ -20,13 +18,9 @@ const Locations = () => {
     fetcData();
   }, []);
 
-const handleChange = (event) => {
-  setBattleLocation(event.target.value);
-};
-console.log(battlelocation);
   return (<div>
     <label htmlFor="locationsDropdown">Select a Location:</label>
-    <select id="locationsDropdown" onChange={handleChange}>
+    <select id="locationsDropdown" onChange={props.pickLocation}>
    
       {location &&   location.map((place, index) => (
         <option key={index} value={place.name}>{place.name} </option> )) }
