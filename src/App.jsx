@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Locations from './components/Locations';
 import Battle from './components/Battle'
 import DisplayLocation from './components/DisplayLocation';
 import Encounter from './components/Encounter';
+import PokemonPicker from './components/PokemonPicker';
 
 function App() {
   const [battleLocation, setBattleLocation] = useState(null);
   const [enemyUrl, setEnemyUrl] = useState(null);
+  const [friendlyUrl, setFriendlyUrl] = useState(null);
 
   const handleLocation = (event) => {
     setBattleLocation(event.target.value);
@@ -15,19 +17,23 @@ function App() {
   const handleGoBack = () => {
     setBattleLocation(null);
     setEnemyUrl(null);
+    setFriendlyUrl(null);
   }
 
-  console.log(enemyUrl);
+  console.log(enemyUrl + friendlyUrl);
 
   return (
     <>
-      <Battle friendly={'https://pokeapi.co/api/v2/pokemon/charizard'} enemy={'https://pokeapi.co/api/v2/pokemon/1'} />
-      {battleLocation ? ( <div>
+      {(battleLocation && friendlyUrl) ? ( <div>
         <DisplayLocation location={battleLocation} onGoBack={handleGoBack}/>
         <Encounter location={battleLocation} onEncounter={setEnemyUrl}/>
+        <Battle friendly={friendlyUrl} enemy={enemyUrl} />
         </div>
       ) : (
-        <Locations pickLocation={handleLocation}/>
+        <div>
+          <Locations pickLocation={handleLocation}/>
+          <PokemonPicker onPick={setFriendlyUrl}/>
+        </div>
       )}
     </>
   )
