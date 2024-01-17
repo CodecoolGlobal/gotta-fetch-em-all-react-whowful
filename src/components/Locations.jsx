@@ -8,9 +8,9 @@ const Locations = (props) => {
       try {
         const response = await fetch("https://pokeapi.co/api/v2/location/")
         const locations = await response.json();
-        console.log(locations.results);
+        /* console.log(locations.results); */
         setlocations(locations.results)
-        console.log(location);
+        /* console.log(location); */
       } catch (error) {
         console.log("Error fetching data")
       }

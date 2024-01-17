@@ -1,11 +1,12 @@
-function DisplayLocation (props) {
-    const {location, goBack} = props;
+function DisplayLocation ({location, onGoBack}) {
     const locationName = location.split('-').map(name => name[0].toUpperCase() + name.slice(1)).join(' ');
-    console.log(locationName);
+    const handleClick = () => {
+        onGoBack();
+    }
     return (
         <div>
             <h1>{locationName}</h1>
-            <button onClick={goBack}>Back</button>
+            <button onClick={handleClick}>Back</button>
         </div>
     )
 }

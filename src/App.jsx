@@ -6,6 +6,7 @@ import Encounter from './components/Encounter';
 
 function App() {
   const [battleLocation, setBattleLocation] = useState(null);
+  const [enemyUrl, setEnemyUrl] = useState(null);
 
   const handleLocation = (event) => {
     setBattleLocation(event.target.value);
@@ -13,16 +14,17 @@ function App() {
 
   const handleGoBack = () => {
     setBattleLocation(null);
+    setEnemyUrl(null);
   }
 
-  console.log(battleLocation);
+  console.log(enemyUrl);
 
   return (
     <>
-      <Battle playerPokemon={'https://pokeapi.co/api/v2/pokemon/charizard'} enemyPokemon={'https://pokeapi.co/api/v2/pokemon/charizard'} />
+      {/* <Battle playerPokemon={'https://pokeapi.co/api/v2/pokemon/charizard'} enemyPokemon={'https://pokeapi.co/api/v2/pokemon/charizard'} /> */}
       {battleLocation ? ( <div>
-        <DisplayLocation location={battleLocation} goBack={handleGoBack}/>
-        <Encounter location={battleLocation}/>
+        <DisplayLocation location={battleLocation} onGoBack={handleGoBack}/>
+        <Encounter location={battleLocation} onEncounter={setEnemyUrl}/>
         </div>
       ) : (
         <Locations pickLocation={handleLocation}/>
