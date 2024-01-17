@@ -11,7 +11,6 @@ useEffect(()=>{
       try {
         const response = await fetch("https://pokeapi.co/api/v2/location/"+location)
         const data =(await response.json());
-        // console.log(data.areas[0].url)
         const url = data.areas[0].url;
         setUrl(url);
       } catch (error) {
@@ -27,7 +26,6 @@ try {
     const res = await fetch(url);
     const data = await res.json();
     setEncounters(data["pokemon_encounters"]);
-   console.log(data["pokemon_encounters"][0].pokemon.name);
     // console.log(data["pokemon_encounters"]);
 } catch (error) {
   console.log(error);

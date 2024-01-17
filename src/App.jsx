@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <Battle playerPokemon={'https://pokeapi.co/api/v2/pokemon/charizard'} enemyPokemon={'https://pokeapi.co/api/v2/pokemon/charizard'} />
+      <Battle friendly={'https://pokeapi.co/api/v2/pokemon/charizard'} enemy={'https://pokeapi.co/api/v2/pokemon/1'} />
       {battleLocation ? ( <div>
         <DisplayLocation location={battleLocation} goBack={handleGoBack}/>
         <Encounter location={battleLocation}/>
