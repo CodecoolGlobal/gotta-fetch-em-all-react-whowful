@@ -34,7 +34,7 @@ function Battle(props) {
       const formulaDefense = enemyPokemon.stats[2]['base_stat']
       const formulaRandomNumber = Math.floor(Math.random() * (217 - 255 + 1) + 217)
       const damageFormula = Math.round(((((2 / 5 + 2) * formulaAttack * 60 / formulaDefense) / 50) + 2) * formulaRandomNumber / 255)
-      if (obj.stats[0]['base_stat'] - damageFormula <= 0) {
+      if (obj.gstats[0]['base_stat'] - damageFormula <= 0) {
         obj.stats[0]['base_stat'] = 0
       } else {
         obj.stats[0]['base_stat'] -= damageFormula

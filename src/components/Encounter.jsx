@@ -7,13 +7,8 @@ const Encounter = ({ location, onEncounter }) => {
   useEffect(() => {
     const fetchUrl = async () => {
       try {
-<<<<<<< HEAD
-        const response = await fetch("https://pokeapi.co/api/v2/location/"+location)
-        const data =(await response.json());
-=======
         const response = await fetch("https://pokeapi.co/api/v2/location/" + location)
         const data = (await response.json());
->>>>>>> 1be614f386d2396f7da9b04dfbc450463d0b01bc
         const url = data.areas[0].url;
         const res = await fetch(url);
         const areaData = await res.json();
@@ -29,22 +24,6 @@ const Encounter = ({ location, onEncounter }) => {
   }, [location, onEncounter]);
 
 
-<<<<<<< HEAD
-  useEffect(()=> {
-const fetchEncounters = async() => {
-try {
-    const res = await fetch(url);
-    const data = await res.json();
-    setEncounters(data["pokemon_encounters"]);
-    // console.log(data["pokemon_encounters"]);
-} catch (error) {
-  console.log(error);
-}
-};
-fetchEncounters();
-}, [url]  );
-=======
->>>>>>> 1be614f386d2396f7da9b04dfbc450463d0b01bc
   return (
     <div>
       <h1>
