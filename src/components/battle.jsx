@@ -92,7 +92,7 @@ function Battle({friendly, enemy, onGoBack, onEnd, end}) {
             </div>
           }
           <h6>
-            <div>{btnText}</div>
+            <div className="text">{btnText}</div>
             <button className="fightBtn" onClick={handleClick}></button>
           </h6>
           {

@@ -1,6 +1,17 @@
 body {
   text-align: center;
   font-family: "Pokemon Classic Regular";
+  background-attachment: fixed;
+  background-image: url("https://images-ext-1.discordapp.net/external/rLyx82DG9FHdOZ-lRNAF0l28YJX2bhnyUnVu_3h8qjA/%3Fpid%3DImgGn/https/th.bing.com/th/id/OIG.sPQXtGlx39.pQ7G4T5Oe?format=webp&width=1030&height=1030");
+  background-color: hsla(0, 0%, 100%, 0.75);
+  background-blend-mode: overlay;
+  background-position: center;
+}
+
+.text {
+  color: rgb(255, 209, 26);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 2rem;
 }
 
 @font-face {
@@ -55,6 +66,7 @@ h6 {
   font-size: 1rem;
   background-image: url('./img/pokemoncard_cleanup.png');
   background-size: cover;
+
 }
 
 .fightBtn {
@@ -88,7 +100,7 @@ img {
 
 h2 {
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 13px;
   font-size: 1.3rem;
 }
 
@@ -99,6 +111,7 @@ h2 {
   justify-content: center;
   padding: 25px;
   flex-wrap: wrap;
+
 }
 
 .pickablePokemon {
@@ -190,5 +203,7 @@ border-radius: 10px;
 
 .endGame {
 margin-top: 100px;
-
+color: rgb(255, 204, 0);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 5rem;
 }

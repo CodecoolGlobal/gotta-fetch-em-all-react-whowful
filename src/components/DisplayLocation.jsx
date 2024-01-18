@@ -5,8 +5,7 @@ function DisplayLocation ({location, onGoBack}) {
     }
     return (
         <div>
-            <h1>{locationName}</h1>
-            <button onClick={handleClick}>Back</button>
+            <h1 className="text">{locationName}</h1>
         </div>
     )
 }

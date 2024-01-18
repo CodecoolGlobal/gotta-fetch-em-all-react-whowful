@@ -17,7 +17,7 @@ const Locations = (props) => {
   }, []);
 
   return (<div>
-    <label htmlFor="locationsDropdown">Choose a battle location:</label>
+    <label className='text' htmlFor="locationsDropdown">Choose a battle location: </label>
     <select id="locationsDropdown" onChange={props.pickLocation} defaultValue={"default"}>
       <option value="default" disabled>Select a place</option>
       {location && location.map((place, index) => (
