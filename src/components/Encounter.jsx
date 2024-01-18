@@ -7,7 +7,7 @@ const Encounter = ({ location, onEncounter }) => {
   useEffect(() => {
     const fetchUrl = async () => {
       try {
-        console.log('fetching' + location);
+        /* console.log('fetching' + location); */
         const response = await fetch("https://pokeapi.co/api/v2/location/" + location)
         const data = (await response.json());
         if (data.areas.length !== 0) {
@@ -17,7 +17,7 @@ const Encounter = ({ location, onEncounter }) => {
           if (areaData['pokemon_encounters'] && areaData["pokemon_encounters"].length !== 0) {
             const encounters = areaData["pokemon_encounters"];
             const randomNumber = Math.floor(Math.random() * (encounters.length));
-            console.log('setting pokemon from' + location);
+            /* console.log('setting pokemon from' + location); */
             setEnemyPokemon(encounters[randomNumber]);
             onEncounter(encounters[randomNumber].pokemon.url);
           } else {
@@ -27,7 +27,7 @@ const Encounter = ({ location, onEncounter }) => {
           setEnemyPokemon(null);
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
     fetchUrl();

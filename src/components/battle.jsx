@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useEffect } from "react"
 
-function Battle(props) {
+function Battle({friendly, enemy, onGoBack, onEnd, end}) {
   const [friendlyPokemon, setFriendlyPokemon] = useState(null)
   const [enemyPokemon, setEnemyPokemon] = useState(null)
   const [level, setLevel] = useState()
@@ -14,12 +14,11 @@ function Battle(props) {
       const response = await fetch(prop)
       const fetchedPokemon = await response.json()
       state(fetchedPokemon)
-      console.log(fetchedPokemon)
       addLevelToPokemon()
     }
-    fetchData(props.friendly, setFriendlyPokemon)
-    fetchData(props.enemy, setEnemyPokemon)
-  }, [props.friendly, props.enemy])
+    fetchData(friendly, setFriendlyPokemon)
+    fetchData(enemy, setEnemyPokemon)
+  }, [friendly, enemy])
 
   const addLevelToPokemon = () => {
     const randomLevel = Math.ceil(Math.random() * 100)
@@ -55,15 +54,28 @@ function Battle(props) {
       setFriendlyPokemon(obj)
       setPlayerTurn(true)
     }
+    handleEnd();
   }
 
   const handleBackBtnClick = () => {
-    props.onGoBack()
+    onGoBack()
+  }
+
+  const handleEnd = () => {
+    if (friendlyPokemon.stats[0]['base_stat'] === 0) {
+      onEnd(false);
+      return 
+    } 
+    if(enemyPokemon.stats[0]['base_stat'] === 0) {
+      onEnd(true);
+      return 
+    }
+    return 
   }
 
   return (
     <>
-      {friendlyPokemon && enemyPokemon && (friendlyPokemon.stats[0]['base_stat'] !== 0 && enemyPokemon.stats[0]['base_stat'] !== 0) ? (
+      {friendlyPokemon && enemyPokemon && end === null? (
         <div>
           {
             <div className="pokemon1">
@@ -97,15 +109,14 @@ function Battle(props) {
           }
           <br />
         </div>
-      ) : (
-        friendlyPokemon && friendlyPokemon.stats[0]['base_stat'] === 0 ? (
+      ) : (end === true ? (
           <div>
-            YOU LOST!
+            YOU WON!
             <button onClick={handleBackBtnClick}>Back</button>
           </div>
         ) : (
           <div>
-            YOU WON!
+            YOU LOST!
             <button onClick={handleBackBtnClick}>Back</button>
           </div>
         )

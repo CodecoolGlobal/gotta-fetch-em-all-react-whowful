@@ -10,7 +10,7 @@ const Locations = (props) => {
         const locations = await response.json();
         setlocations(locations.results)
       } catch (error) {
-        console.log("Error fetching data")
+        console.error("Error fetching data")
       }
     };
     fetcData();
