@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useEffect } from "react"
+import gif from "../img/giphy.gif"
 
 function Battle({friendly, enemy, onGoBack, onEnd, end}) {
   const [friendlyPokemon, setFriendlyPokemon] = useState(null)
@@ -113,11 +114,15 @@ function Battle({friendly, enemy, onGoBack, onEnd, end}) {
           <div>
             YOU WON!
             <button onClick={handleBackBtnClick}>Back</button>
+            <br/>
+            <img src={gif} alt="fancy squirtle"/>
           </div>
         ) : (
           <div>
             YOU LOST!
             <button onClick={handleBackBtnClick}>Back</button>
+            <br/>
+            <img src="https://i.pinimg.com/originals/06/c5/1a/06c51a3d8e3d3daa9c9ac1e2ef1348f3.gif" alt="cryingsquirtle running away"/>
           </div>
         )
       )}
