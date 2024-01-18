@@ -163,3 +163,18 @@ h2 {
   text-align: end;
   cursor: pointer;
 }
+
+.pickablePokemon.shimmer {
+  animation: shimmer 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes shimmer {
+  0% {
+    box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7);
+    transform: scale(1.1);
+  }
+  100% {
+    box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7), 0 0 40px 20px rgba(0, 255, 0, 0.3) inset;
+    transform: scale(1.1);
+  }
+}

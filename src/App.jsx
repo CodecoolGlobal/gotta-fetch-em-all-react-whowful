@@ -20,14 +20,12 @@ function App() {
     setFriendlyUrl(null);
   }
 
-  console.log(enemyUrl + friendlyUrl);
-
   return (
     <>
       {(battleLocation && friendlyUrl) ? ( <div>
         <DisplayLocation location={battleLocation} onGoBack={handleGoBack}/>
         <Encounter location={battleLocation} onEncounter={setEnemyUrl}/>
-        <Battle friendly={friendlyUrl} enemy={enemyUrl} />
+        <Battle friendly={friendlyUrl} enemy={enemyUrl} onGoBack={handleGoBack}/>
         </div>
       ) : (
         <div>
