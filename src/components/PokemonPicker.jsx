@@ -45,14 +45,18 @@ function PokemonPicker({ onPick }) {
     pokemons && console.log(pokemons);
 
     return (
-        <div>
+        <div className="options-container">
             {pokemons && pokemons.map((pokemon) => (
-                <div key={pokemon.id}>
-                    <img src={pokemon.sprites['front_default']} alt='pokemon' />
-                    {pokemon.forms[0].name}
-                    {pokemon.types.map(type => type.type.name).join(', ')}
-                    {pokemon.stats[0]['base_stat']}
-                    <button onClick={() => handleClick(pokemon.id)}>Pick!</button>
+                <div key={pokemon.id} className="pickablePokemon">
+                    <img src={pokemon.sprites['front_default']} alt='pokemon' className="pickablePokemon"/>
+                    <h3 className="option-name">{pokemon.forms[0].name[0].toUpperCase() + pokemon.forms[0].name.slice(1)}</h3>
+                    <h4 className="option-types">Type: {pokemon.types.map(type => type.type.name).join(', ')}</h4>
+                    <h3 className="option-stats">♥️ {pokemon.stats[0]['base_stat']}</h3>
+                    <h3 className="option-stats">⚔️ {pokemon.stats[1]['base_stat']}</h3>
+                    <h3 className="option-stats">⛨ {pokemon.stats[2]['base_stat']}</h3>
+                    <div>
+                        <button className="pickBtn" onClick={() => handleClick(pokemon.id)}></button> 
+                    </div>
                 </div>
             ))}
         </div>
