@@ -65,6 +65,7 @@ h6 {
   background-size: cover;
   background-color: transparent;
   text-align: end;
+  border: 0;
 
 }
 
@@ -87,7 +88,8 @@ img {
 
 h2 {
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
 }
 
 .options-container{
@@ -178,4 +180,15 @@ h2 {
     box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.7), 0 0 40px 20px rgba(0, 255, 0, 0.3) inset;
     transform: scale(1.1);
   }
+}
+
+.backButton {
+width: 200px;
+height: 25px;
+border-radius: 10px;
+}
+
+.endGame {
+margin-top: 100px;
+
 }

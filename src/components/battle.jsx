@@ -111,18 +111,20 @@ function Battle({friendly, enemy, onGoBack, onEnd, end}) {
           <br />
         </div>
       ) : (end === true ? (
-          <div>
+          <div className="endGame">
             YOU WON!
-            <button onClick={handleBackBtnClick}>Back</button>
             <br/>
             <img src={gif} alt="fancy squirtle"/>
+            <br />
+            <button className="backButton" onClick={handleBackBtnClick}>Back to main page</button>
           </div>
         ) : (
-          <div>
+          <div className="endGame">
             YOU LOST!
-            <button onClick={handleBackBtnClick}>Back</button>
             <br/>
             <img src="https://i.pinimg.com/originals/06/c5/1a/06c51a3d8e3d3daa9c9ac1e2ef1348f3.gif" alt="cryingsquirtle running away"/>
+            <br />
+            <button className="backButton" onClick={handleBackBtnClick}>Back to main page</button>
           </div>
         )
       )}
