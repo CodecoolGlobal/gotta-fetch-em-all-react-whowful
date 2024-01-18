@@ -34,7 +34,7 @@ function Battle(props) {
       const formulaDefense = enemyPokemon.stats[2]['base_stat']
       const formulaRandomNumber = Math.floor(Math.random() * (217 - 255 + 1) + 217)
       const damageFormula = Math.round(((((2 / 5 + 2) * formulaAttack * 60 / formulaDefense) / 50) + 2) * formulaRandomNumber / 255)
-      if (obj.gstats[0]['base_stat'] - damageFormula <= 0) {
+      if (obj.stats[0]['base_stat'] - damageFormula <= 0) {
         obj.stats[0]['base_stat'] = 0
       } else {
         obj.stats[0]['base_stat'] -= damageFormula
@@ -57,34 +57,58 @@ function Battle(props) {
     }
   }
 
+  const handleBackBtnClick = () => {
+    props.onGoBack()
+  }
+
   return (
     <>
       {friendlyPokemon && enemyPokemon && (friendlyPokemon.stats[0]['base_stat'] !== 0 && enemyPokemon.stats[0]['base_stat'] !== 0) ? (
         <div>
-          <div>
-            {
-              friendlyPokemon &&
-              `Pokemon: ${friendlyPokemon.name} -
-        Type: ${friendlyPokemon.types.map(type => type.type.name).join(', ')} -
-        Level: ${50} - 
-        HP: ${friendlyPokemon.stats[0]['base_stat']}
-        `
-            }
-          </div>
-          <div>
-            {
-              enemyPokemon &&
-              `Pokemon: ${enemyPokemon.name} -
-        Type: ${enemyPokemon.types.map(type => type.type.name).join(', ')} -
-        Level: ${level} - 
-        HP: ${enemyPokemon.stats[0]['base_stat']}
-        `
-            }
-          </div>
-          <button onClick={handleClick}>{btnText}</button>
+          {
+            <div className="pokemon1">
+              <h2>{friendlyPokemon.name.charAt(0).toUpperCase() + friendlyPokemon.name.slice(1)}</h2>
+              <img src={friendlyPokemon.sprites['front_default']} alt='pokemon' />
+              <h2>Type: {friendlyPokemon.types.map(type => type.type.name).join(', ')}</h2>
+              <h2>Level: {50}</h2>
+              <h2>Weight: {friendlyPokemon.weight / 10} kg</h2>
+              <h2>Height: {friendlyPokemon.height / 10} m</h2>
+              <h1 className="stats">♥️ {friendlyPokemon.stats[0]['base_stat']} </h1>
+              <h1 className="stats">⚔️ {friendlyPokemon.stats[1]['base_stat']} </h1>
+              <h1 className="stats">⛨ {friendlyPokemon.stats[2]['base_stat']}</h1>
+            </div>
+          }
+          <h6>
+            <div>{btnText}</div>
+            <button className="fightBtn" onClick={handleClick}></button>
+          </h6>
+          {
+            <div className="pokemon2">
+              <h2>{enemyPokemon['name'].charAt(0).toUpperCase() + enemyPokemon.name.slice(1)}</h2>
+              <img src={enemyPokemon.sprites['front_default']} alt='pokemon' />
+              <h2>Type: {enemyPokemon.types.map(type => type.type.name).join(', ')} </h2>
+              <h2>Level: {level}</h2>
+              <h2>Weight: {enemyPokemon.weight / 10} kg</h2>
+              <h2>Height: {enemyPokemon.height / 10} m</h2>
+              <h1 className="stats">♥️ {enemyPokemon.stats[0]['base_stat']} </h1>
+              <h1 className="stats">⚔️ {enemyPokemon.stats[1]['base_stat']} </h1>
+              <h1 className="stats">⛨ {enemyPokemon.stats[2]['base_stat']}</h1>
+            </div>
+          }
+          <br />
         </div>
       ) : (
-        friendlyPokemon && friendlyPokemon.stats[0]['base_stat'] === 0 ? (<div>YOU LOST!</div>) : (<div>YOU WON!</div>)
+        friendlyPokemon && friendlyPokemon.stats[0]['base_stat'] === 0 ? (
+          <div>
+            YOU LOST!
+            <button onClick={handleBackBtnClick}>Back</button>
+          </div>
+        ) : (
+          <div>
+            YOU WON!
+            <button onClick={handleBackBtnClick}>Back</button>
+          </div>
+        )
       )}
     </>
   )
