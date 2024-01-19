@@ -38,6 +38,7 @@ const Encounter = ({ location, onEncounter }) => {
     <div>
       <h2 className="text">
         {enemyPokemon === null ? ("This location doesn't seem to have any pokémon!") : enemyPokemon ? (`Wild ${enemyPokemon.pokemon.name.toUpperCase()} appeared!`) : null}
+        
       </h2>
     </div>
   )

@@ -110,7 +110,7 @@ function Battle({friendly, enemy, onGoBack, onEnd, end}) {
           }
           <br />
         </div>
-      ) : (end === true ? (
+      ) : (((end === true) ? (
           <div className="endGame">
             YOU WON!
             <br/>
@@ -118,7 +118,7 @@ function Battle({friendly, enemy, onGoBack, onEnd, end}) {
             <br />
             <button className="backButton" onClick={handleBackBtnClick}>Back to main page</button>
           </div>
-        ) : (
+        ) : (end === false) ? (
           <div className="endGame">
             YOU LOST!
             <br/>
@@ -126,8 +126,8 @@ function Battle({friendly, enemy, onGoBack, onEnd, end}) {
             <br />
             <button className="backButton" onClick={handleBackBtnClick}>Back to main page</button>
           </div>
-        )
-      )}
+        ) : null
+      ))}
     </>
   )
 }
