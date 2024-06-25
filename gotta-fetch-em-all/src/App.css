@@ -45,7 +45,7 @@ h6 {
   color: black;
   text-align: center;
   font-size: 1rem;
-  background-image: url('./img/pokemoncard_cleanup.png');
+  background-image: url('img/pokemoncard_cleanup.png');
   background-size: cover;
 }
 
@@ -64,7 +64,7 @@ h6 {
   color: black;
   text-align: center;
   font-size: 1rem;
-  background-image: url('./img/pokemoncard_cleanup.png');
+  background-image: url('img/pokemoncard_cleanup.png');
   background-size: cover;
 
 }
@@ -128,7 +128,7 @@ h2 {
   color: black;
   text-align: center;
   font-size: 0.8rem;
-  background-image: url('./img/pokemoncard_cleanup.png');
+  background-image: url('img/pokemoncard_cleanup.png');
   background-size: cover;
 }
 
